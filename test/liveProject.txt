@@ -1,0 +1,283 @@
+testcases on Anyaut(18 Jluy for 4 weeks)
+anyAut.com/app
+DDF, KDF, POM
+Do Hybrid
+use excel as o/p frm anyaut--i/p to hyb frmwork
+good to hv: maven, jenkins, testNG, Github
+
+(Tuesday and Friday- 7:30PT)
+
+Element name..........hp_findProject
+==========================
+employer:
+tomt@gmail.com
+tomt
+123456
+
+FreeL:
+AnnL@gmail.com
+ann
+12345
+
+================
+mvn archetype:generate
+
+
+1213
+123
+groupID(package name): banking
+artifactid(project): debit cards
+
+
+
+project created
+
+....................
+folder created in c: drive
+
+click...pom file...
+
+==============
+
+connect maven to eclipse
+cd DebitCards..........
+mvn eclipse:eclipse
+=========
+navigate to eclipse
+
+
+
+##########################
+
+properties p= new properties();
+FileInputStream fis - new FileInputStream("...path..");
+p.load(fis);
+
+sysoout(p.getProperty("variable"));
+
+
+++++++++++++++++++++++++++++++++++++
+
+log4j:
+
+
+core and api are used
+
+private static Logger=LogManager.getLogger(demo.class.getName()) ;
+
+log.debug("..");
+log.infor();
+log.error();
+
+Use log. Error() to log when elements are not displayed in the page or if any validations fail
+
+Use Log. Debug()
+
+When each Selenium action is performed like click, SendKeys, getText()
+
+Use log.info()
+
+When operation is successfully completed ex: After loading page, or after any successful validations
+
+It’s just counterpart to log. Error()
+=====================
+log4j config has following"
+
+1.appenders....where to log_
+pattern
+loggers......
+2.root level= error...whill log only error
+else use trace...to trace everything
+
+mention a 'filename'(text file with .log extention) if we need logs in a particular file
+
+create xml file for log4j
+also add the resources folder to Build Path(project level)
+
+-------------------------------------
+
+log4j LATER:??????????
+
+.................................
+
+using hashmap:
+
+public class TestRun
+{
+     public static void main(String [] args)
+     {
+        Map<String, Integer[]> prices = new HashMap<String, Integer[]>();
+
+        prices.put("milk", new Integer[] {1, 3, 2});
+        prices.put("eggs", new Integer[] {1, 1, 2});
+     }
+}
+.........................
+readElementID
+readsheetData
+
+
+As a Freelancer i want to find projects without Login
+
+
+Select sel= new Select(driver.findElement(By.xpath("html/body/header/div/div/div[3]/ul/li[1]/ul")));
+sel.selectByVisibleText("Find Projects");//?????????/
+}
+
+.//ul[@class='dropdown-menu']
+driver.getElemets(By.xpath("//ul[contains(@class, 'dropdown-menu')]"));
+
+.//a[@href="http://qaonair.com/projects/"]
+
+FIND PROJECTS
+CREATE PROFILE
+
+
+Actions action = new Actions(driver);    
+WebElement optionsList = driver.findElement(By.xpath("//span[contains(@class, 'k-dropdown-wrap')]"));
+action.moveToElement(optionsList);
+
+List<WebElement> options = driver.getElemets(By.xpath("//span[contains(@class, 'k-input')]"));
+for(WebElement option : options) {
+    if (option.getText().equals("Texas")) {
+        option.click();
+    }
+}
+=============================
+
+.//label[text()='Keyword']
+
+
+.//ul[@class='chosen-results']/li[@class='active-result automation cat-79 level-0']
+
+//////////////////////////////////////////
+	try{
+		driver.findElement(By.xpath(".//*[@id='project_category_chosen']/div[@class='chosen-drop']/ul/li[2]")).click();//for selecting category//
+	}catch(Exception e){
+		System.out.println("An exception!!!!"+ e);
+				} 
+		}
+
+===============================
+	As a Freelancer i should be able to go to Inbox
+
+====================================
+"project found"
+
+.fre-account-info.dropdown-toggle
+
+
+			<class name="MainQaOnAir.FInbox" />
+			<class name="MainQaOnAir.FSignUp" />
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite">
+	<test verbose="2" name="Default test">
+		<listeners>
+			<listener class-name="Utility.Listener" />
+		</listeners>
+		<classes>
+			<class name="MainQaOnAir.FreelProjectsNoLoginTest" />
+		</classes>
+	</test> <!-- Default test -->
+</suite> <!-- Default suite -->
+===============================
+
+driver.findElement(By.linktext("Log Out"));
+===========================================
+
+where put xsl filr in maven
+build.xml cannot instantiate the class
+seleniumhelper2 causing cssselector for linktext?????/
+============================
+
+
+	
+	
+	@DataProvider(name="logindata")
+	@Test
+	public  Object[][] logindata() throws IOException{
+		ExcelUtility e= new ExcelUtility();
+		String[][] xdatasets = e.readDataSets();
+		for(int i=1;i<e.rDataSet;i++){
+		String Uname=xdatasets[i][1];
+		String Pwd= xdatasets[i][2];
+		return new Object{{Uname}, {Pwd}};
+
+================================
+
+
+	
+	
+
+	//	 	@AfterMethod
+	//	 	public void takingScreenshot() throws IOException{
+	//	 		try{
+	//	 			System.out.println("Taking Screenshot!!!");
+	//	 			TakesScreenshot ts= (TakesScreenshot)s4.getDriver();
+	//	 			File scr= ts.getScreenshotAs(OutputType.FILE);
+	//	 			FileUtils.copyFile(scr,new File("./screenshot/manager.png"));
+	//	 		}catch(Exception e){
+	//	 			e.printStackTrace();
+	//	 		}
+	//	 	}	
+
+
+========================
+
+@Test
+		public void mouseHover(String vElement, String vdata, String vType){
+			System.out.println("----------MouseHover-------------");
+			Actions act= new Actions(driver);
+			WebElement we= elementTyp(vElement,vType);
+			act.moveToElement(we).click().build().perform();
+//			List<WebElement> l= driver.findElements(By.xpath("//ul[contains(@class, 'dropdown-menu')]"));
+//			System.out.println("The dropdown options are +"+ l.size());
+//			for(int i=0;i<l.size();i++){
+//				System.out.println( l.get(i).getText()); }
+//			System.out.println(driver.findElement(By.linkText("FIND PROJECTS")).isDisplayed());
+			//driver.findElement(By.linkText("FIND PROJECTS")).click();
+
+		}
+
+=====================================
+
+	@Test
+	public void scrollByElement(String vElement, String fdata){
+	System.out.println("-----------scrollElement------------");{
+	driver.findElement(By.xpath(vElement)).click();
+	//WebElement w=driver.findElement(By.xpath(".//ul[@class='fre-skill-dropdown']"));
+	//	w.click();
+				//	List<WebElement> list= driver.findElements(By.xpath(".//ul[@class='fre-skill-dropdown']"));
+				//	System.out.println(list.size());
+				//	list.indexOf(driver.findElement(By.xpath(".//a[text()='Acceptance testing']")));
+
+				driver.findElement(By.xpath(".//a[@class='fre-skill-item'][@name='alpha-testing']")).click(); //for selecting Skill name//
+			}
+		}
+
+==================================================
+//		@Test
+//		public void clickButton_multipleTimes(String vElement, String fdata){
+//			System.out.println("----------------Clicking button multiple time----------");
+//			//	int times= Integer.parseInt(fdata);
+//			//	for(int i=1; i<=times;i++){
+//			driver.findElement(By.xpath(vElement)).sendKeys(fdata);;
+//		}
+
+===========================
+8:40 17how to use data providers in login
+
+
+
+
